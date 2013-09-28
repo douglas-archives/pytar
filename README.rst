@@ -11,8 +11,11 @@ Pytar - Cause I'll never remember a valid tar command.
 .. image:: https://pypip.in/d/pytar/badge.png
         :target: https://crate.io/packages/pytar?version=latest
 
+Boom!
 
-Python Boilerplate contains all the boilerplate you need to create a Python package.
+.. image:: http://imgs.xkcd.com/comics/tar.png
+
+I don't know if its a good or bad idea, but I'm doing anyway.
 
 * Free software: BSD license
 * Documentation: http://pytar.rtfd.org. (soon)
