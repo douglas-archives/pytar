@@ -20,11 +20,17 @@ def abspath(relative_path):
     return os.path.join(CURRENT_DIR, relative_path)
 
 
+def clean_extracted_files():
+    os.remove(abspath('tarfiles/hi.txt'))
+    os.remove(abspath('tarfiles/tar.png'))
+
+
 class TestPytar(unittest.TestCase):
     def test_should_extract_a_normal_tar_file(self):
         tar_file = abspath('tarfiles/files.tar')
         result = pytar.pytar_extract(tar_file)
         self.assertEqual('success', result['status'])
+        self.addCleanup(clean_extracted_files)
 
     def test_should_not_extract_a_corrupted_tar_file(self):
         tar_file = abspath('tarfiles/corrupted-tar-file.tar')
