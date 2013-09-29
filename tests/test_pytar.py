@@ -13,11 +13,7 @@ import os
 
 from pytar import pytar
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-
-def abspath(relative_path):
-    return os.path.join(CURRENT_DIR, relative_path)
+from utils import abspath, CURRENT_DIR
 
 
 def clean_extracted_files():

@@ -35,13 +35,16 @@ def parse_pytar_args(args):
     return parser.parse_args(args)
 
 
-def main():
-    args = parse_pytar_args(sys.argv[1:])
+def main(sys_argv):
+    try:
+        args = parse_pytar_args(sys_argv)
+    except SystemExit:
+        print('Need a help? Type: pytar -h')
+        return None
 
     if args.action == EXTRACT:
         extraction = pytar.pytar_extract(args.target)
-        print(extraction.get('message'))
-
+        return extraction.get('message')
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main(sys.argv[1:]))
