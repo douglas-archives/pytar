@@ -35,6 +35,10 @@ class TestPytar(unittest.TestCase):
         result = pytar.pytar_extract(tar_file)
         self.assertEqual('fail', result['status'])
 
+    def test_should_not_extract_a_directory(self):
+        result = pytar.pytar_extract(CURRENT_DIR)
+        self.assertEqual('fail', result['status'])
+
     def tearDown(self):
         pass
 
