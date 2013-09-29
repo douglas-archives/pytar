@@ -23,10 +23,6 @@ class TestArgParsing(unittest.TestCase):
         self.assertEqual(args.action, 'extract')
         self.assertEqual(args.target, 'tarfile.tar')
 
-    def test_parse_pytar_args_action_extract_tarfile_verbose(self):
-        args = parse_pytar_args(['extract', 'tarfile.tar', '--verbose'])
-        self.assertTrue(args.verbose)
-
 
 class TestMain(unittest.TestCase):
 
