@@ -8,8 +8,11 @@ import tarfile
 
 def pytar_extract(tar_file_name):
     is_a_valid_tarfile = False
-    extract_path = os.path.dirname(tar_file_name)
     messages = {
+        'path_does_not_exist': {
+            'status': 'fail',
+            'message': 'ERROR: This path does not exist.'
+        },
         'is_dir': {
             'status': 'fail',
             'message': 'ERROR: This is a directory not a tar file.'
@@ -23,6 +26,11 @@ def pytar_extract(tar_file_name):
             'message': 'Successfully extracted.'
         },
     }
+
+    if not os.path.exists(tar_file_name):
+        return messages['path_does_not_exist']
+
+    extract_path = os.path.dirname(tar_file_name)
 
     if os.path.isdir(tar_file_name):
         return messages['is_dir']

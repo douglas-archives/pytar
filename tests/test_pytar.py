@@ -37,6 +37,11 @@ class TestPytar(unittest.TestCase):
         result = pytar.pytar_extract(CURRENT_DIR)
         self.assertEqual('fail', result['status'])
 
+    def test_should_not_extract_an_inexistent_path(self):
+        inexistent_tar_file = abspath('tarfiles/inexistent-tar-file.tar')
+        result = pytar.pytar_extract(inexistent_tar_file)
+        self.assertEqual('fail', result['status'])
+
 
 if __name__ == '__main__':
     unittest.main()
