@@ -46,5 +46,5 @@ def main(sys_argv):
         extraction = pytar.pytar_extract(args.target)
         return extraction.get('message')
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     sys.exit(main(sys.argv[1:]))
