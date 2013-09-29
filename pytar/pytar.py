@@ -16,25 +16,32 @@ def pytar_create(tar_file_name):
 
 def pytar_extract(tar_file_name):
     is_a_valid_tarfile = False
-    result = {}
     extract_path = os.path.dirname(tar_file_name)
+    messages = {
+        'is_dir': {
+            'status': 'fail',
+            'message': 'ERROR: This is a directory not a tar file.'
+        },
+        'not_a_tar_file': {
+            'status': 'fail',
+            'message': 'ERROR: This may not be a tar file or may be corrupted.'
+        },
+        'success': {
+            'status': 'success',
+            'message': 'Successfully extracted.'
+        },
+    }
 
-    try:
+    if os.path.isdir(tar_file_name):
+        return messages['is_dir']
+    else:
         is_a_valid_tarfile = tarfile.is_tarfile(tar_file_name)
         if not is_a_valid_tarfile:
-            result['status'] = 'fail'
-            result['message'] = 'ERROR: This file may be corrupted.'
-    except:
-        result['status'] = 'fail'
-        result['message'] = 'ERROR: This may not be a tar file.'
-
-    if is_a_valid_tarfile:
-        with tarfile.open(tar_file_name) as tar_file:
-            tar_file.extractall(extract_path)
-            result['status'] = 'success'
-            result['message'] = 'Successfully extracted.'
-
-    return result
+            return messages['not_a_tar_file']
+        else:
+            with tarfile.open(tar_file_name) as tar_file:
+                tar_file.extractall(extract_path)
+                return messages['success']
 
 
 def parse_pytar_args(args):
