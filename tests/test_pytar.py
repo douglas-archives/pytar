@@ -21,10 +21,6 @@ def abspath(relative_path):
 
 
 class TestPytar(unittest.TestCase):
-
-    def setUp(self):
-        pass
-
     def test_should_extract_a_normal_tar_file(self):
         tar_file = abspath('tarfiles/files.tar')
         result = pytar.pytar_extract(tar_file)
@@ -39,8 +35,6 @@ class TestPytar(unittest.TestCase):
         result = pytar.pytar_extract(CURRENT_DIR)
         self.assertEqual('fail', result['status'])
 
-    def tearDown(self):
-        pass
 
 if __name__ == '__main__':
     unittest.main()
