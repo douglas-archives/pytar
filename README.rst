@@ -1,6 +1,7 @@
-===============================
-Pytar - Cause I'll never remember a valid tar command.
-===============================
+=====
+Pytar
+=====
+Cause I'll never remember a valid tar command.
 
 .. image:: https://badge.fury.io/py/pytar.png
     :target: http://badge.fury.io/py/pytar
