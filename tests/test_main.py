@@ -11,7 +11,7 @@ Tests for `main` module.
 from pytar.main import main
 from pytar.main import parse_pytar_args
 
-from utils import abspath
+from .utils import abspath
 
 import sys
 if sys.version_info[:2] < (2, 7):
