@@ -17,6 +17,14 @@ if sys.argv[-1] == 'publish':
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
+requirements = []
+test_requirements = []
+
+# Add Python 2.6-specific dependencies
+if sys.version_info[:2] < (2, 7):
+    requirements.append('argparse')
+    test_requirements.append('unittest2')
+
 setup(
     name='pytar',
     version='0.1.0',
