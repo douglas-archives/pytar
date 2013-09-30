@@ -39,6 +39,7 @@ def pytar_extract(tar_file_name):
         if not is_a_valid_tarfile:
             return messages['not_a_tar_file']
         else:
-            with tarfile.open(tar_file_name) as tar_file:
-                tar_file.extractall(extract_path)
-                return messages['success']
+            tar_file = tarfile.open(tar_file_name)
+            tar_file.extractall(extract_path)
+            tar_file.close()
+            return messages['success']

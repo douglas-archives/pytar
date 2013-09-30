@@ -8,12 +8,17 @@ test_pytar
 Tests for `pytar` module.
 """
 
-import unittest
 import os
 
 from pytar import pytar
 
 from utils import abspath, CURRENT_DIR
+
+import sys
+if sys.version_info[:2] < (2, 7):
+    import unittest2 as unittest
+else:
+    import unittest
 
 
 def clean_extracted_files():

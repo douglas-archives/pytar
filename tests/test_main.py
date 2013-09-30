@@ -8,12 +8,16 @@ test_main
 Tests for `main` module.
 """
 
-import unittest
-
 from pytar.main import main
 from pytar.main import parse_pytar_args
 
 from utils import abspath
+
+import sys
+if sys.version_info[:2] < (2, 7):
+    import unittest2 as unittest
+else:
+    import unittest
 
 
 class TestArgParsing(unittest.TestCase):
