@@ -12,7 +12,7 @@ import os
 
 from pytar import pytar
 
-from utils import abspath, CURRENT_DIR
+from .utils import abspath, CURRENT_DIR
 
 import sys
 if sys.version_info[:2] < (2, 7):
