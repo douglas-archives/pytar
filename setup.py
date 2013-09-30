@@ -27,7 +27,7 @@ if sys.version_info[:2] < (2, 7):
 
 setup(
     name='pytar',
-    version='0.1.0',
+    version='0.1.0.dev0',
     description='''Python - Cause I'll never remember a valid tar command''',
     long_description=readme + '\n\n' + history,
     author='Douglas Miranda',
@@ -38,8 +38,7 @@ setup(
     ],
     package_dir={'pytar': 'pytar'},
     include_package_data=True,
-    install_requires=[
-    ],
+    install_requires=requirements,
     license="BSD",
     zip_safe=False,
     keywords='pytar',
@@ -55,4 +54,5 @@ setup(
         'Programming Language :: Python :: 3.3',
     ],
     test_suite='tests',
+    tests_require=test_requirements
 )
