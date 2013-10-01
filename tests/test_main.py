@@ -31,12 +31,13 @@ class TestArgParsing(unittest.TestCase):
 class TestMain(unittest.TestCase):
 
     def test_main_should_not_return_None(self):
-        result = main(['extract', abspath('tarfiles/corrupted-tar-file.tar')])
+        corrupted_tar_file = abspath('tarfiles/corrupted-tar-file.tar')
+        result = main(['', 'extract', corrupted_tar_file])
         self.assertIsNotNone(result)
 
     def test_main_should_return_None(self):
         action = 'unkown_action'
-        result = main([action, abspath('tarfiles/corrupted-tar-file.tar')])
+        result = main(['', action, abspath('tarfiles/corrupted-tar-file.tar')])
         self.assertIsNone(result)
 
 if __name__ == '__main__':

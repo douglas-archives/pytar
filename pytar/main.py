@@ -5,7 +5,7 @@ from __future__ import unicode_literals, print_function
 import argparse
 import sys
 
-from . import pytar
+from pytar import pytar_extract
 
 CREATE, EXTRACT = 'create', 'extract'
 
@@ -35,16 +35,17 @@ def parse_pytar_args(args):
     return parser.parse_args(args)
 
 
-def main(sys_argv):
+def main(sys_argv=[]):
+    sys_argv = sys_argv or sys.argv
     try:
-        args = parse_pytar_args(sys_argv)
+        args = parse_pytar_args(sys_argv[1:])
     except SystemExit:
         print('Need a help? Type: pytar -h')
         return None
 
     if args.action == EXTRACT:
-        extraction = pytar.pytar_extract(args.target)
+        extraction = pytar_extract(args.target)
         return extraction.get('message')
 
 if __name__ == '__main__':  # pragma: no cover
-    sys.exit(main(sys.argv[1:]))
+    sys.exit(main(sys.argv))

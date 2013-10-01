@@ -37,6 +37,11 @@ setup(
         'pytar',
     ],
     package_dir={'pytar': 'pytar'},
+    entry_points={
+        'console_scripts': [
+            'pytar = pytar.main:main',
+        ]
+    },
     include_package_data=True,
     install_requires=requirements,
     license="BSD",
