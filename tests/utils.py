@@ -16,3 +16,8 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def abspath(relative_path):
     return os.path.join(CURRENT_DIR, relative_path)
+
+
+def clean_extracted_files():
+    os.remove(abspath('tarfiles/hi.txt'))
+    os.remove(abspath('tarfiles/tar.png'))

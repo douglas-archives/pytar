@@ -44,8 +44,12 @@ def main(sys_argv=[]):
         return None
 
     if args.action == EXTRACT:
-        extraction = pytar_extract(args.target)
-        return extraction.get('message')
+        extraction_result = pytar_extract(args.target, args.verbose)
+        if args.verbose:
+            return '{0}\n{1}'.format(extraction_result.get('verbose'),
+                                     extraction_result.get('message'))
+        else:
+            return extraction_result.get('message')
 
 if __name__ == '__main__':  # pragma: no cover
     sys.exit(main(sys.argv))
