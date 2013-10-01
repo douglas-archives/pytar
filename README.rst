@@ -9,6 +9,9 @@ Cause I'll never remember a valid tar command.
 .. image:: https://travis-ci.org/douglasmiranda/pytar.png?branch=master
         :target: https://travis-ci.org/douglasmiranda/pytar
 
+.. image:: https://coveralls.io/repos/douglasmiranda/pytar/badge.png?branch=master
+        :target: https://coveralls.io/r/douglasmiranda/pytar?branch=master
+
 .. image:: https://pypip.in/d/pytar/badge.png
         :target: https://crate.io/packages/pytar?version=latest
 
