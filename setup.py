@@ -46,9 +46,10 @@ setup(
     install_requires=requirements,
     license="BSD",
     zip_safe=False,
-    keywords='pytar',
+    keywords='pytar, tar, gzip, python, compression, extract, console, script',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
+        'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
