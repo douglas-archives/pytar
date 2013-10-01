@@ -27,4 +27,11 @@ I don't know if its a good or bad idea, but I'm doing anyway.
 Features
 --------
 
-* TODO
+Well, for now:
+
+* Extracting tar files without having to remember those commands.
+
+    .. code-block:: bash
+
+        # pytar $ACTION $TARGET
+        $ pytar extract my-tar-file.tar
