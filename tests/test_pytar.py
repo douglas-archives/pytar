@@ -56,14 +56,12 @@ class TestPytarExtract(unittest.TestCase):
         self.assertEqual('fail', result['status'])
 
 
-# class TestPytarListing(unittest.TestCase):
-#     def test_should_output_the_verbose_list_of_members_from_a_tar_file(self):
-#         contents = '-rw-rw-r-- douglas/douglas     28275 2013-09-28 17:03:43'
-#         contents += ' tar.png \n-rw-rw-r-- douglas/douglas         5 '
-#         contents += '2013-09-28 17:04:51 hi.txt \n'
-#         tar_file = tarfile.open(abspath('tarfiles/files.tar'))
-#         output = pytar.list_contents(tar_file)
-#         self.assertEqual(contents, output)
+class TestPytarListing(unittest.TestCase):
+    def test_should_output_the_verbose_list_of_members_from_a_tar_file(self):
+        tar_file = tarfile.open(abspath('tarfiles/files.tar'))
+        output = pytar.list_contents(tar_file)
+        self.assertIn('tar.png', output)
+        self.assertIn('hi.txt', output)
 
 
 if __name__ == '__main__':
