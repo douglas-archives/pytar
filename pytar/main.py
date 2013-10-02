@@ -5,7 +5,7 @@ from __future__ import unicode_literals, print_function
 import argparse
 import sys
 
-from pytar import pytar_extract
+from .pytar import pytar_extract
 
 CREATE, EXTRACT = 'create', 'extract'
 
