@@ -1,6 +1,6 @@
-=====
-Pytar
-=====
+====================
+(Experimental) Pytar
+====================
 Cause I'll never remember a valid tar command.
 
 .. image:: https://badge.fury.io/py/pytar.png
