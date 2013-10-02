@@ -57,11 +57,31 @@ class TestPytarExtract(unittest.TestCase):
 
 
 class TestPytarListing(unittest.TestCase):
+
+    def setUp(self):
+        tar_file = tarfile.open(
+            abspath('tarfiles/tar-with-links-and-other-types.tar')
+        )
+        self.output_file_types = pytar.list_contents(tar_file)
+
     def test_should_output_the_verbose_list_of_members_from_a_tar_file(self):
         tar_file = tarfile.open(abspath('tarfiles/files.tar'))
         output = pytar.list_contents(tar_file)
         self.assertIn('tar.png', output)
         self.assertIn('hi.txt', output)
+
+    def test_should_output_the_symbolic_link(self):
+        self.assertIn('ustar/symtype -> regtype', self.output_file_types)
+
+    def test_should_output_the_hard_link(self):
+        self.assertIn('ustar/lnktype link to ustar/regtype',
+                      self.output_file_types)
+
+    def test_should_output_devmajor_devminor_when_character_device(self):
+        self.assertIn('1,3', self.output_file_types)
+
+    def test_should_output_devmajor_devminor_when_block_device(self):
+        self.assertIn('3,0', self.output_file_types)
 
 
 if __name__ == '__main__':
