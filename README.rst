@@ -35,3 +35,12 @@ Well, for now:
 
         # pytar $ACTION $TARGET
         $ pytar extract my-tar-file.tar
+
+Install
+--------
+
+* Using PIP.
+
+    .. code-block:: bash
+
+        $ pip install pytar==0.1.0.dev0
