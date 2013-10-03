@@ -22,7 +22,7 @@ Boom!
 I don't know if its a good or bad idea, but I'm doing anyway.
 
 * Free software: BSD license
-* Documentation: http://pytar.rtfd.org. (soon)
+* Documentation: http://pytar.rtfd.org.
 
 Features
 --------
