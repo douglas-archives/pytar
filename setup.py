@@ -27,7 +27,7 @@ if sys.version_info[:2] < (2, 7):
 
 setup(
     name='pytar',
-    version='0.1.0.dev0',
+    version='0.1.0.dev1',
     description='''Pytar - Cause I'll never remember a valid tar command''',
     long_description=readme + '\n\n' + history,
     author='Douglas Miranda',
