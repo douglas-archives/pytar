@@ -3,8 +3,11 @@
 
 from __future__ import unicode_literals
 import os
+import sys
 import tarfile
 from datetime import datetime
+
+PY3 = sys.version > '3'
 
 
 def list_contents(tar_file):
@@ -30,8 +33,12 @@ def list_contents(tar_file):
             line += '{0:10}'.format(tarinfo.size) + ' '
 
         line += str(datetime.fromtimestamp(tarinfo.mtime)) + ' '
-        line += '{0}{1}{2}'.format(tarinfo.name.decode('utf-8'),
-                                   ('/' if tarinfo.isdir() else ''), ' ')
+
+        line += '{0}{1}{2}'.format(
+            tarinfo.name if PY3 else tarinfo.name.decode('utf-8'),
+            ('/' if tarinfo.isdir() else ''),
+            ' '
+        )
 
         if tarinfo.issym():
             line += '-> {0}'.format(tarinfo.linkname)
