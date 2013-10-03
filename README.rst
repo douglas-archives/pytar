@@ -43,4 +43,6 @@ Install
 
     .. code-block:: bash
 
-        $ pip install pytar==0.1.0.dev0
+        $ pip install pytar --pre
+
+See `--pre flag <http://www.pip-installer.org/en/latest/usage.html#install-pre>`_ on PIP documentation.
