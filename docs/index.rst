@@ -3,10 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Pytar's documentation!
-======================================
+Pytar: Cause I'll never remember a valid tar command
+====================================================
 
-Contents:
+Basics
+------
 
 .. toctree::
    :maxdepth: 2
@@ -14,6 +15,13 @@ Contents:
    readme
    installation
    usage
+
+Project Info
+------------
+
+.. toctree::
+   :maxdepth: 2
+
    contributing
    authors
    history
