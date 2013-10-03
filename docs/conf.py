@@ -52,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Pytar - Cause I'll never remember a valid tar command.'
+project = u'Pytar'
 copyright = u'2013, Douglas Miranda'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -198,7 +198,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'pytar.tex', u'Pytar - Cause I'll never remember a valid tar command. Documentation',
+  ('index', 'pytar.tex', u'Pytar',
    u'Douglas Miranda', 'manual'),
 ]
 
@@ -228,7 +228,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pytar', u'Pytar - Cause I'll never remember a valid tar command. Documentation',
+    ('index', 'pytar', u'Pytar',
      [u'Douglas Miranda'], 1)
 ]
 
@@ -242,7 +242,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'pytar', u'Pytar - Cause I'll never remember a valid tar command. Documentation',
+  ('index', 'pytar', u'Pytar',
    u'Douglas Miranda', 'pytar', 'One line description of project.',
    'Miscellaneous'),
 ]
