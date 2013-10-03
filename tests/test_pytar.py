@@ -84,5 +84,16 @@ class TestPytarListing(unittest.TestCase):
         self.assertIn('3,0', self.output_file_types)
 
 
+class TestPytarUnicode(unittest.TestCase):
+
+    def test_should_read_and_list_unicode_file_names_inside_the_tar(self):
+        tar_file = tarfile.open(abspath('tarfiles/test-unicode.tar'))
+        output = pytar.list_contents(tar_file)
+        self.assertIn('ãéçõïûã°+@', output)
+        self.assertIn('umlauts-ÄÖÜäöüß', output)
+        self.assertIn('ಫೈಲ್', output)
+        self.assertIn('файл', output)
+
+
 if __name__ == '__main__':
     unittest.main()

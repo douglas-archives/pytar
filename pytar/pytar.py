@@ -30,7 +30,8 @@ def list_contents(tar_file):
             line += '{0:10}'.format(tarinfo.size) + ' '
 
         line += str(datetime.fromtimestamp(tarinfo.mtime)) + ' '
-        line += tarinfo.name + ('/' if tarinfo.isdir() else '') + ' '
+        line += '{0}{1}{2}'.format(tarinfo.name.decode('utf-8'),
+                                   ('/' if tarinfo.isdir() else ''), ' ')
 
         if tarinfo.issym():
             line += '-> {0}'.format(tarinfo.linkname)
