@@ -18,6 +18,7 @@ Cause I'll never remember a valid tar command.
 Boom!
 
 .. image:: http://imgs.xkcd.com/comics/tar.png
+        :target: http://xkcd.com/1168/
 
 I don't know if its a good or bad idea, but I'm doing anyway.
 
