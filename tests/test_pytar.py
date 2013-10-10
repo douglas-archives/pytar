@@ -12,7 +12,8 @@ from __future__ import unicode_literals
 
 from pytar import pytar
 
-from .utils import abspath, CURRENT_DIR, clean_extracted_files
+from .utils import (abspath, CURRENT_DIR, clean_extracted_files,
+                    clean_extracted_files_another_dir)
 
 import tarfile
 
@@ -53,6 +54,17 @@ class TestPytarExtract(unittest.TestCase):
 
     def test_should_not_extract_an_empty_tar_file(self):
         result = pytar.pytar_extract(abspath('tarfiles/empty-tar-file.tar'))
+        self.assertEqual('fail', result['status'])
+
+    def test_should_extract_to_another_directory(self):
+        path = abspath('tarfiles/dir-test-extract-path/')
+        result = pytar.pytar_extract(abspath('tarfiles/files.tar'), path)
+        self.assertEqual('success', result['status'])
+        self.addCleanup(clean_extracted_files_another_dir)
+
+    def test_should_not_extract_to_an_inexistent_directory(self):
+        path = abspath('tarfiles/inexistent-dir/')
+        result = pytar.pytar_extract(abspath('tarfiles/files.tar'), path)
         self.assertEqual('fail', result['status'])
 
 

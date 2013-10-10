@@ -21,3 +21,8 @@ def abspath(relative_path):
 def clean_extracted_files():
     os.remove(abspath('tarfiles/hi.txt'))
     os.remove(abspath('tarfiles/tar.png'))
+
+
+def clean_extracted_files_another_dir():
+    os.remove(abspath('tarfiles/dir-test-extract-path/hi.txt'))
+    os.remove(abspath('tarfiles/dir-test-extract-path/tar.png'))

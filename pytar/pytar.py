@@ -50,7 +50,7 @@ def list_contents(tar_file):
     return output or 'Nothing to output.'
 
 
-def pytar_extract(tar_file_name, verbose=False):
+def pytar_extract(tar_file_name, extract_path=None, verbose=False):
     is_a_valid_tarfile = False
     messages = {
         'path_does_not_exist': {
@@ -69,6 +69,10 @@ def pytar_extract(tar_file_name, verbose=False):
             'status': 'fail',
             'message': 'This is an empty tar file.'
         },
+        'wrong_extract_path': {
+            'status': 'fail',
+            'message': 'ERROR: The extract path does not exist.'
+        },
         'success': {
             'status': 'success',
             'message': 'Successfully extracted.',
@@ -82,7 +86,13 @@ def pytar_extract(tar_file_name, verbose=False):
     if os.path.isdir(tar_file_name):
         return messages['is_dir']
 
-    extract_path = os.path.dirname(tar_file_name)
+    if not extract_path:
+        path = os.path.dirname(tar_file_name)
+    else:
+        if os.path.isdir(extract_path):
+            path = extract_path
+        else:
+            return messages['wrong_extract_path']
 
     is_a_valid_tarfile = tarfile.is_tarfile(tar_file_name)
     if not is_a_valid_tarfile:
@@ -94,7 +104,7 @@ def pytar_extract(tar_file_name, verbose=False):
     if not members:
         return messages['empty_tar_file']
 
-    tar_file.extractall(extract_path, members)
+    tar_file.extractall(path, members)
 
     if verbose:
         messages['success']['verbose'] = list_contents(tar_file)

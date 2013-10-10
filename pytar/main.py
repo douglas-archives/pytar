@@ -28,6 +28,13 @@ def parse_pytar_args(args):
                 on the action).'''
     )
     parser.add_argument(
+        'extract_path',
+        help='''Extraction path. By default will extract alongside the
+                tar file.''',
+        nargs='?',
+        default=None
+    )
+    parser.add_argument(
         '-v', '--verbose',
         help='Print the files to be extracted',
         action='store_true', default=False
@@ -44,7 +51,11 @@ def main(sys_argv=[]):
         return None
 
     if args.action == EXTRACT:
-        extraction_result = pytar_extract(args.target, args.verbose)
+        extraction_result = pytar_extract(
+            args.target,
+            args.extract_path,
+            args.verbose
+        )
         if args.verbose:
             return '{0}\n{1}'.format(extraction_result.get('verbose'),
                                      extraction_result.get('message'))
