@@ -6,7 +6,7 @@ History
 0.1.0.dev2 (2013-10-11)
 +++++++++++++++++++++++
 
-* Add "extract path" ( issue #3 )
+* Add "extract path" ( issue #2 )
 
 0.1.0.dev1 (2013-10-03)
 +++++++++++++++++++++++
