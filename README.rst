@@ -1,3 +1,5 @@
+NOTE: If you like this idea, you really should look at `unp <https://github.com/mitsuhiko/unp>`_.
+
 ====================
 (Experimental) Pytar
 ====================
